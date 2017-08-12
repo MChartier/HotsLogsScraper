@@ -22,6 +22,8 @@ namespace HotsLogsScraper.UnitTests
             Assert.IsNotNull(heroStatistics, "Result should not be null.");
             Assert.IsTrue(heroStatistics.Count > 0, "Result should not be empty.");
             heroStatistics.ForEach(x => Assert.IsNotNull(x, "Items in resulting list should not be null."));
+            heroStatistics.ForEach(x => Assert.AreNotEqual(Role.Unknown, x.Role, "All hero roles should be recognized."));
+            heroStatistics.ForEach(x => Assert.AreNotEqual(SubRole.Unknown, x.SubRole, "All hero subroles should be recognized."));
         }
     }
 }
